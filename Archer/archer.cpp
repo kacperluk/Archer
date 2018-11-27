@@ -13,7 +13,7 @@ archer::archer()
 
 void archer::createArrow()
 {
- arrow *arrow1=new arrow(400,10);
+ arrow *arrow1=new arrow(40,40);
  scene()->addItem(arrow1);
  arrow1->setPos(this->x(),this->y());
 }

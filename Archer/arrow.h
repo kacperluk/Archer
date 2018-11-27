@@ -11,7 +11,7 @@ public:
     double Vy;
     double nextPosX;
     double nextPosY;
-    //double rotAngle;
+    double rotAngle;
 
     const double t;
     const double g;

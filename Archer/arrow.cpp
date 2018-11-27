@@ -1,6 +1,7 @@
 #include "arrow.h"
 #include <QTimer>
 #include <math.h>
+#include <iostream>
 arrow::arrow(double vx,double vy):
     Vx{vx},Vy{vy},nextPosX{0},nextPosY{0},/*rotAngle{rotation()},*/t{0.03},g{9.81}
 {
@@ -31,21 +32,23 @@ void arrow::rotateArrow()
    // this->setRotation(rotAngle);
 
     //rotation() returns current rotation in degrees
-    this->setRotation(((Vx/Vy)*(180/3.14))-rotation());
+    std::cout<<(atan(Vx/Vy))<<std::endl;
+    double k=(atan(Vx/Vy)*180/3,1415926)+rotation();
+    this->setRotation(k);
 }
 
 void arrow::calculateNextPosValues()
 {
     Vx=Vx;
-    Vy=Vy-(g*t);
     nextPosX=this->x()+Vx*t;
-    nextPosY=this->y()-Vy-(g*t*t*0.5);
+    nextPosY=this->y()-(Vy*t-(g*t*t*0.5));
+    Vy=Vy-(g*t);
 }
 
 void arrow::move()
 {
     hideArrow();
-    resetTransform();
+    //resetTransform();
     calculateNextPosValues();
     rotateArrow();
     this->setPos(nextPosX,nextPosY);
