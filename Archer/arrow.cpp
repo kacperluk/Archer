@@ -31,7 +31,7 @@ void arrow::rotateArrow()
    // this->setRotation(rotAngle);
 
     //rotation() returns current rotation in degrees
-    this->setRotation((tan(Vx/Vy)*(180/3.14))-rotation());
+    this->setRotation(((Vx/Vy)*(180/3.14))-rotation());
 }
 
 void arrow::calculateNextPosValues()
