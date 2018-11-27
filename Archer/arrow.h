@@ -6,13 +6,12 @@
 class arrow:public QObject,public QGraphicsRectItem
 {
     Q_OBJECT
-    friend class archer;
 public:
     double Vx;
     double Vy;
     double nextPosX;
     double nextPosY;
-    double rotAngle;
+    //double rotAngle;
 
     const double t;
     const double g;
@@ -26,5 +25,6 @@ public:
 
 public slots:
     void move();
+
 };
 #endif // ARROW_H

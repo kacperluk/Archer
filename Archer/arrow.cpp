@@ -2,7 +2,7 @@
 #include <QTimer>
 #include <math.h>
 arrow::arrow(double vx,double vy):
-    Vx{vx},Vy{vy},nextPosX{0},nextPosY{0},rotAngle{0},t{0.03},g{9.81}
+    Vx{vx},Vy{vy},nextPosX{0},nextPosY{0},/*rotAngle{rotation()},*/t{0.03},g{9.81}
 {
     drawArrow();
     startMoving(30);
@@ -27,9 +27,11 @@ void arrow::startMoving(int ms)
 
 void arrow::rotateArrow()
 {
-    this->rotAngle=(tan(Vx/Vy)*(180/3.14))-this->rotAngle;
-    this->setRotation(rotAngle);
-    this->rotAngle=(tan(Vx/Vy)*(180/3.14));
+   // this->rotAngle=(tan(Vx/Vy)*(180/3.14))-this->rotation();
+   // this->setRotation(rotAngle);
+
+    //rotation() returns current rotation in degrees
+    this->setRotation((tan(Vx/Vy)*(180/3.14))-rotation());
 }
 
 void arrow::calculateNextPosValues()
@@ -43,6 +45,7 @@ void arrow::calculateNextPosValues()
 void arrow::move()
 {
     hideArrow();
+    resetTransform();
     calculateNextPosValues();
     rotateArrow();
     this->setPos(nextPosX,nextPosY);
