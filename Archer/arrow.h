@@ -11,10 +11,10 @@ public:
     double Vy;
     double nextPosX;
     double nextPosY;
-    double rotAngle;
 
     const double t;
     const double g;
+    const double pi;
 
     arrow(double vx,double vy);
     void drawArrow();
@@ -25,6 +25,5 @@ public:
 
 public slots:
     void move();
-
 };
 #endif // ARROW_H

@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
     archer.cpp \
-    arrow.cpp
+    arrow.cpp \
+    game.cpp
 
 HEADERS += \
     archer.h \
-    arrow.h
+    arrow.h \
+    game.h
 
 FORMS +=
 
