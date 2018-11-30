@@ -2,7 +2,7 @@
 #define ARROW_H
 #include <QGraphicsRectItem>
 #include <QObject>
-
+#include <QTimer>
 class arrow:public QObject,public QGraphicsRectItem
 {
     Q_OBJECT
@@ -11,7 +11,7 @@ public:
     double Vy;
     double nextPosX;
     double nextPosY;
-
+    double rotAngle;
     const double t;
     const double g;
     const double pi;
@@ -19,9 +19,9 @@ public:
     arrow(double vx,double vy);
     void drawArrow();
     void hideArrow();
-    void startMoving(int ms);
-    void rotateArrow();
+    void setTimerForMove(int ms);
     void calculateNextPosValues();
+    void checkSceneBorders();
 
 public slots:
     void move();

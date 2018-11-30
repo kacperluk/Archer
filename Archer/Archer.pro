@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
     archer.cpp \
     arrow.cpp \
-    game.cpp
+    game.cpp \
+    enemy.cpp
 
 HEADERS += \
     archer.h \
     arrow.h \
-    game.h
+    game.h \
+    enemy.h
 
 FORMS +=
 
