@@ -13,23 +13,33 @@ void game::mousePressEvent(QMouseEvent *event)
     pressX=event->globalX();
     pressY=event->globalY();
 }
-
-
-game::game()
+void game::createScene()
 {
     scene=new QGraphicsScene;
     scene->setSceneRect(0,0,800,600);
     this->setScene(scene);
-    archer *b=new archer();
-    bowman=b;
+}
+void game::createArcher()
+{
+    bowman=new archer();
     scene->addItem(bowman);
-    enemy *enemy1=new enemy;
-    scene->addItem(enemy1);
-    enemy1->setPos(scene->width()/2,scene->height()/2);
+}
+game::game()
+{
+    createScene();
+    createArcher();
+    createEnemy();
 }
 void game::createArrow(int V0x,int V0y)
 {
- arrow *arrow1=new arrow(V0x,V0y);
+ arrow *arrow1=new arrow(V0x,V0y,this);
  scene->addItem(arrow1);
  arrow1->setPos(bowman->x(),bowman->y());
+}
+
+void game::createEnemy()
+{
+    enemy1=new enemy;
+    scene->addItem(enemy1);
+    //enemy1->setPos(scene->width()-50,scene->height()-50);
 }
