@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <iostream>
+#include <thread>
 arrow::arrow(double vx,double vy,game *ptr):
     gamePtr{ptr},
     timer{nullptr},
@@ -100,6 +101,6 @@ void arrow::move()
 {
     hideArrow();
     calculateNextPosValues();
-    drawArrow();
+    std::thread t1(drawArrow());
     checkArrowPos();
 }
