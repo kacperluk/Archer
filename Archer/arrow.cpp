@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <iostream>
+#include <thread>
 arrow::arrow(double vx,double vy,game *ptr):
     gamePtr{ptr},
     timer{nullptr},
@@ -18,17 +19,16 @@ arrow::arrow(double vx,double vy,game *ptr):
     g{9.81},
     pi{3.141592}
 {
-    drawArrow();
+    drawThis();
     setTimerForMove(t*300);
 }
-
-void arrow::drawArrow()
+void arrow::drawThis()
 {
     setPos(nextPosX,nextPosY);
     setRotation(rotAngle);
     setRect(0,0,40,1);
 }
-void arrow::hideArrow()
+void arrow::hideThis()
 {
     this->setRect(0,0,0,0);
 }
@@ -67,13 +67,13 @@ void arrow::checkArrowPos()
     }
     else if(checkSceneBorders()==true)
     {
-        delete timer;
+
+            delete timer;
         delete this;
     }
 }
 bool arrow::checkSceneBorders()
 {
-
     if(x()>scene()->width()||x()<0)
     {
         return true;
@@ -96,10 +96,11 @@ bool arrow::checkCollision()
     return false;
 
 }
+
 void arrow::move()
 {
-    hideArrow();
+    hideThis();
     calculateNextPosValues();
-    drawArrow();
+    drawThis();
     checkArrowPos();
 }

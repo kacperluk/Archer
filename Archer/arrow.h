@@ -4,8 +4,9 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QTimer>
-#include <thread>
-#include <mutex>
+
+
+
 
 class arrow:public QObject,public QGraphicsRectItem
 {
@@ -27,10 +28,13 @@ public:
     const double pi;
 
     arrow(double vx,double vy,game *ptr);
-    void drawArrow();
-    void hideArrow();
+    void drawThis();
+    void hideThis();
+
     void setTimerForMove(int ms);
     void calculateNextPosValues();
+
+
     void checkArrowPos();
     bool checkSceneBorders();
     bool checkCollision();
