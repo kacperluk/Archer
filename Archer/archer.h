@@ -12,6 +12,8 @@ public:
 
     archer();
 void createArrow(int V0x,int V0y);
+void drawThis();
+void hideThis();
 };
 
 #endif // ARCHER_H

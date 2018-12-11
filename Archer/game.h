@@ -11,7 +11,7 @@ public:
     archer *bowman;
     enemy *enemy1;
     QGraphicsScene *scene;
-
+    QList<QGraphicsItem*>itemsList;
     int pressX;
     int pressY;
     void mousePressEvent(QMouseEvent *event);

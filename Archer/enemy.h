@@ -6,7 +6,9 @@ class enemy:public QGraphicsRectItem
 {
 public:
     enemy();
-    void drawEnemyAtRandPos();
+    void drawThis();
+    void hideThis();
+    void setRandPos();
     double getEnemyX();
     double getEnemyY();
 };
